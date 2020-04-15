@@ -19,6 +19,7 @@ public class TodolistViewModel {
         input = "";
     }
 
+    @NotifyChange("todoItems")
     @Command
     public void invertTodoItemStatus(@BindingParam("index") int index) {
         todoItems.get(index).invertStatus();
