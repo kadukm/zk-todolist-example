@@ -3,6 +3,6 @@
     <config-name>my</config-name>
     <library-property>
         <name>org.zkoss.theme.preferred</name>
-        <value>zkoss</value>
+        <value>zktheme</value>
     </library-property>
 </zk>
