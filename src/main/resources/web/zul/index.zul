@@ -1,0 +1,21 @@
+<zk>
+    <style src="~./css/custom.css" />
+    <window viewModel="@id('vm') @init('com.github.todolist.viewmodel.TodolistViewModel')" title="TODO List" width="500px">
+        <listbox model="@load(vm.todoItems)">
+            <listhead>
+                <listheader label="TODO Items" />
+            </listhead>
+            <template name="model" var="each" status="forEachStatus">
+                <listitem>
+                    <listcell>
+                        <checkbox label="@init(each.text)"
+                                  checked="@load(each.done)"
+                                  onClick="@command('invertTodoItemStatus', index=forEachStatus.index)" />
+                    </listcell>
+                </listitem>
+            </template>
+        </listbox>
+        <textbox value="@bind(vm.input) @save(vm.input, before='addTodoItem')" constraint="no empty, before_end:Should not be empty"/>
+        <button label="Add" onClick="@command('addTodoItem')" sclass="button_with_left_margin" />
+    </window>
+</zk>
